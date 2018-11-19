@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Me Too App - Nearby Orders</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+<body class="is-preload">
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <br><br>
+        <div class="inner">
+            <h1>Nearby Orders</h1>
+            <h4>Food</h4>
+            <div class="box alt">
+                <div class="row gtr-25 gtr-uniform" style="text-align: center">
+                    <div class="col-5"><span class="image fit"><img onclick="go();" src="images/chickenrice.jpg" alt="" /></span><p style="text-align: left">Li Ji Chicken Rice<br>7m away</p></div>
+                    <div class="col-5"><span class="image fit"><img src="images/western.jpg" alt="" /></span><p style="text-align: left">Papa Jones Western<br>21m away</p></div>
+                    <div class="col-5"><span class="image fit"><img src="images/bubbletea.jpg" alt="" /></span><p style="text-align: left">Juicy's Homemade Bubble Tea<br>69m away</p></div>
+                    <div class="col-5"><span class="image fit"><img src="images/steakhouse.jpg" alt="" /></span><p style="text-align: left">Underpass Steakhouse<br>102m away</p></div>
+                <script>
+                    function go() {
+                        window.location.href = "vieworder.html";
+                    }
+                </script>
+                </div>
+            </div>
+            <br>
+            <h4>Items</h4>
+            <div class="box alt">
+                <div class="row gtr-25 gtr-uniform" style="text-align: center">
+                    <div class="col-5"><span class="image fit"><img src="images/groceries.jpg" alt="" /></span><p style="text-align: left">Groceries (2 Items)<br>52m away</p></div>
+                    <div class="col-5"><span class="image fit"><img src="images/household.jpg" alt="" /></span><p style="text-align: left">Household Items (3 Items)<br>802m away</p></div>
+                    <div class="col-5"><span class="image fit"><img src="images/groceries.jpg" alt="" /></span><p style="text-align: left">Groceries (5 Items)<br>867m away</p></div>
+                    <div class="col-5"><span class="image fit"><img src="images/electronics.jpg" alt="" /></span><p style="text-align: left">Electronics (1 Item)<br>1.1km away</p></div>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+            <nav id="menu">
+                <header class="major">
+                    <h2 id="title">Welcome, $username$ </h2>
+                </header>
+                <ul>
+                    <li><a href="map.html">View Map</a></li>
+                    <li><a href="neworder.html">New Order</a></li>
+                    <li><a href="nearbyorder.html">Nearby Orders</a></li>
+                    <li>
+                        <span class="opener">E-Wallet</span>
+                        <ul>
+                            <li><a href="currentbalance.html">Current Balance</a></li>
+                            <li><a href="pasttransactions.html">Previous Transactions</a></li>
+                            <li><a href="topup.html">Top up</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+
+            <footer id="footer">
+                <div><a href="index.html" class="button big">Log Out</a></div>
+                <br>
+                <p class="copyright">&copy; 2018 Team Gardevoir. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+            </footer>
+
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+var username = localStorage.getItem("username");
+document.getElementById('title').innerHTML = "Welcome, " +username;
+</script>
+</body>
+</html>

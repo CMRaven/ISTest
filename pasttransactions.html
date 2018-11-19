@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+
+<html>
+<head>
+    <title>Me Too App - Previous Transactions</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+	
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+<!-- Header -->
+		
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <!-- Content -->
+            <section>
+				<h1>Previous Transactions</h1>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th>Description</th>
+								<th>Amount</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>26th November 2018</td>
+								<td>Paid $17.71 for order #2610182111</td>
+								<td>-$17.17</td>
+							</tr>
+							<tr>
+								<td>26th November 2018</td>
+								<td>Top-up $100.00 by PayPal</td>
+								<td>$100.00</td>
+							</tr>
+							<tr>
+								<td>25th November 2018</td>
+								<td>Paid $20 for order #2510182111</td>
+								<td>-$20</td>
+							</tr>
+							<tr>
+								<td>25th November 2018</td>
+								<td>Top-up $20.00 by PayNow.</td>
+								<td>$20</td>
+							</tr>
+							<tr>
+								<td>21st November 2018</td>
+								<td>Paid $40.32 for order #2110182111</td>
+								<td>-$40.32</td>
+							</tr>
+							<tr>
+								<td>21st November 2018</td>
+								<td>Top-up $40.32 by Visa Card</td>
+								<td>$40.32</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+            
+            <nav id="menu">
+                <header class="major">
+                    <h2 id="title">Welcome, $username$	</h2>
+                </header>
+                <ul>
+                    <li><a href="map.html">View Map</a></li>
+                    <li><a href="neworder.html">New Order</a></li>
+                    <li><a href="nearbyorder.html">Nearby Orders</a></li>
+                    <li>
+                        <span class="opener">E-Wallet</span>
+                        <ul>
+                            <li><a href="currentbalance.html">Current Balance</a></li>
+							<li><a href="pasttransactions.html">Previous Transactions</a></li>
+                            <li><a href="topup.html">Top up</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            
+            <footer id="footer">
+                <div><a href="index.html" class="button big">Log Out</a></div>
+                <br>
+                <p class="copyright">&copy; 2018 Team Gardevoir. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+            </footer>
+
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+var username = localStorage.getItem("username");
+document.getElementById('title').innerHTML = "Welcome, " +username;
+</script>
+
+</body>
+</html>

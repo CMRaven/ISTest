@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+
+<html>
+<head>
+    <title>Me Too App - Balance</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+	
+	<style>
+	.container {
+		position: relative;
+		text-align: left;
+	}
+
+	.centered {
+		position: absolute;
+		top: 95px;
+		left: 80px;
+		color: #f56a6a;
+		font-size: 30px;
+	}
+	</style>
+
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+<!-- Header -->
+		
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <!-- Content -->
+            <section>
+				<h1>Current Balance</h1>
+
+				<!-- Image-->
+				<div class="appcenter">
+					<label class="appcenter" style= "color: #f56a6a; font-size: 30px;" id="balance">$83.29</label>
+				</div>
+								
+				<!-- Top up and Past Transactions Buttons-->
+				<div class="inner">				
+					<div class="row">
+						<div class="col-6 col-12-small">
+							<ul class="actions stacked">
+								<li><a href="topup.html" class="button primary">Top Up</a></li>
+								<li><a href="pasttransactions.html" class="button primary">Past Transactions</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+            </section>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+            <nav id="menu">
+                <header class="major">
+                    <h2 id="title">Welcome, $username$	</h2>
+                </header>
+                <ul>
+                    <li><a href="map.html">View Map</a></li>
+                    <li><a href="neworder.html">New Order</a></li>
+                    <li><a href="nearbyorder.html">Nearby Orders</a></li>
+                    <li>
+                        <span class="opener">E-Wallet</span>
+                        <ul>
+                            <li><a href="currentbalance.html">Current Balance</a></li>
+                            <li><a href="pasttransactions.html">Previous Transactions</a></li>
+                            <li><a href="topup.html">Top up</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+
+            <footer id="footer">
+                <div><a href="index.html" class="button big">Log Out</a></div>
+                <br>
+                <p class="copyright">&copy; 2018 Team Gardevoir. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+            </footer>
+
+        </div>
+    </div>
+</div>
+
+<!--
+<div class="footerbar">
+    <a style="width: 50%" href="neworder.html">New Order</a>
+    <b style="width: 50%" href="nearbyorder.html">Nearby Orders</b>
+</div>
+-->
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+		var username = localStorage.getItem("username");
+		document.getElementById('title').innerHTML = "Welcome, " +username;
+	
+		var newBalance = localStorage.getItem("newBalance");
+		
+		if(newBalance != null) {
+		    document.getElementById("balance").innerHTML = newBalance;
+		}
+		
+	</script>
+
+</body>
+</html>

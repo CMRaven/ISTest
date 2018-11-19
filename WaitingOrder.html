@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+	<title>Me Too App - Waiting Order</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+	<link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+<script>
+    setTimeout('Redirect()', 5000);
+    function Redirect()
+    {
+        window.location="yourorder.html";
+    }
+
+</script>
+
+<body class="is-preload">
+<!-- Wrapper -->
+<div id="wrapper">
+
+	<!-- Main -->
+	<div id="main">
+		<!-- Login Page -->
+		<div class="inner">
+			<br><br>
+			<h1 style="text-align: center; line-height:10px;">Looking for delivery ... </h1>
+			<hr/>
+            <div class="box">
+                <div id="summary" class="order">
+					<label id="food"></label>
+					<hr/>
+					<div class="summaryList">
+						<label class="leftSum">Food Items</label><label class="rightSum" id="foodTotalPrice">$0.00</label>
+					</div>
+					<div class="summaryList">
+						<label class="leftSum">Delivery Fee</label><label class="rightSum" id="deliveryFee">$1.00</label>
+					</div>
+					<div class="summaryList">
+						<label class="leftSum">Grand Total</label><label class="rightSum" id="total">$1.00</label>
+					</div>
+					<br>
+				</div>
+            </div>
+
+			<script>
+                var fTP = localStorage.getItem("foodTotalPrice");
+                var dF = localStorage.getItem("deliveryFee");
+                var tot = localStorage.getItem("total");
+
+                document.getElementById('foodTotalPrice').textContent = fTP;
+                document.getElementById('deliveryFee').textContent = dF;
+                document.getElementById('total').textContent = tot;
+
+                var items = localStorage.getItem("order");
+                items = items.split(",");
+
+                var food = document.getElementById('food');
+
+                var size = items.length;
+                for (i = 0; i< size; i++) {
+                    food.textContent += items[i] + "\n";
+                }
+			</script>
+	</div>
+		<div id="sidebar">
+			<div class="inner">
+				<nav id="menu">
+					<header class="major">
+						<h2 id="title">Welcome, $username$ </h2>
+					</header>
+					<ul>
+						<li><a href="map.html">View Map</a></li>
+						<li><a href="neworder.html">New Order</a></li>
+						<li><a href="nearbyorder.html">Nearby Orders</a></li>
+						<li>
+							<span class="opener">E-Wallet</span>
+							<ul>
+								<li><a href="currentbalance.html">Current Balance</a></li>
+								<li><a href="pasttransactions.html">Previous Transactions</a></li>
+								<li><a href="topup.html">Top up</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+
+
+				<footer id="footer">
+					<div><a href="index.html" class="button big">Log Out</a></div>
+					<br>
+					<p class="copyright">&copy; 2018 Team Gardevoir. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+				</footer>
+
+			</div>
+		</div>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

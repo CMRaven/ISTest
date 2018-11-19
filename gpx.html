@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Me Too App - Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+    $(document).ready(function(){
+
+	var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+		var startPoint = "";
+		  var endPoint = "";
+		  var text=this.responseText;
+
+          var gpxDoc = $.parseXML(text); 
+          var $xml = $(gpxDoc);
+
+          // Find Name of Activity
+          var $name = $xml.find('name');
+
+          var check = false;
+		 
+
+          // Iterate through all track segements and find a route.
+          $xml.find('trkpt').each(function(){
+            // this is where all the reading and writing will happen
+            var lat = $(this).attr("lat");
+            var lon = $(this).attr("lon");
+			if (check == false) {
+				startPoint = lat+","+lon;
+				check = true;
+			}
+			else {
+				endPoint = lat+","+lon;
+			}
+          });
+		  initMap(startPoint, endPoint);
+    }
+  };
+  xhttp.open("GET", "https://cmraven.github.io/ISAssignment/ISProjectV10/test.gpx", true);
+  xhttp.send();
+	  
+    });
+    </script>
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Main -->
+    <div id="main">
+            <!-- Content -->
+                    <!-- TODO: Add map here -->
+					<input id="file-input" type="file" name="gpxfile" hidden/>
+					<div id="googleMap"></div>
+					<script>
+						var im = "images/bluecircle.png";
+						var counter = 0;
+						var leg;
+						
+					    var map;
+						function myMap() {
+                            var mapProp= {
+                                center:new google.maps.LatLng(1.443307,103.785473),
+                                zoom:20,
+                                disableDefaultUI: true,
+                                scaleControl: true,
+                                zoomControl: true
+                            };
+							map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+						}
+						
+						function initMap(startPoint, endPoint) {
+							
+							localStorage.setItem("endPoint", endPoint);
+							
+							var directionsService = new google.maps.DirectionsService;
+							var directionsDisplay = new google.maps.DirectionsRenderer({
+									map: map
+									
+								});;
+							var map = new google.maps.Map(document.getElementById('googleMap'), {
+							  center:new google.maps.LatLng(1.443307,103.785473),
+							  zoom:20,
+							  disableDefaultUI: true,
+							  scaleControl: true,
+							  zoomControl: true
+							});
+							
+							directionsDisplay.setMap(map);
+	
+							calculateAndDisplayRoute(directionsService, directionsDisplay, startPoint, endPoint);
+							setTimeout('changeMap()', 2000);
+						  }
+ 
+						  function calculateAndDisplayRoute(directionsService, directionsDisplay, startPoint, endPoint ) {
+							directionsService.route({
+							  origin: startPoint,
+							  destination: endPoint,
+							  travelMode: 'DRIVING',
+							}, function(response, status) {
+							  if (status === 'OK') {
+								//var leg = response.routes[0].legs[0];
+								
+								directionsDisplay.setDirections(response);
+							  } else {
+								window.alert('Directions request failed due to ' + status);
+							  }
+							});
+						  }
+						  
+						 
+						 function changeMap() {
+							var endPoint = localStorage.getItem("endPoint");
+							
+							var changeArray = ['1.442530,103.785941' , '1.443174,103.787416', '1.441919,103.785812', '1.443286,103.781719', '1.441256,103.779847' , '1.4399059,103.7785576'];
+							
+							if (counter == 6) {
+								alert("You have reached the destination");
+								location.href="currentorder.html";
+							}
+							else {
+							initMap(changeArray[counter],endPoint);
+							counter++;
+							}
+						  }
+					</script>
+
+					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrweZu6ZqWxpcSLA9sxGg-3o8yarAtODI&callback=myMap"></script>
+        </div>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+            <nav id="menu">
+                <header class="major">
+                    <h2 id="title">Welcome, $username$	</h2>
+                </header>
+                <ul>
+                    <li><a href="map.html">View Map</a></li>
+                    <li><a href="neworder.html">New Order</a></li>
+                    <li><a href="nearbyorder.html">Nearby Orders</a></li>
+                    <li>
+                        <span class="opener">E-Wallet</span>
+                        <ul>
+                            <li><a href="currentbalance.html">Current Balance</a></li>
+                            <li><a href="pasttransactions.html">Previous Transactions</a></li>
+                            <li><a href="topup.html">Top up</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <footer id="footer">
+                <div><a href="index.html" class="button big">Log Out</a></div>
+                <br>
+                <p class="copyright">&copy; 2018 Team Gardevoir. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+var username = localStorage.getItem("username");
+document.getElementById('title').innerHTML = "Welcome, " +username;
+</script>
+
+</body>
+</html>

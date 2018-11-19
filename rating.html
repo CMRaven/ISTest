@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Me Too App - Feedback</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+<body class="is-preload">
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <!-- Login Page -->
+        <div class="inner">
+            <div class="box">
+                <div style="text-align: center">
+                    <div class="appcenter"><img style="width: 40%; height:40%;"src="images/caroline.png" /></div>
+                <p id="title">Hi $username$, congratulations on order completion!</p>
+                <hr>
+                <p>You received</p>
+                <p>$8.00</p>
+                <hr>
+                <p>Your order was rated</p>
+                    <div class="appcenter"><img style="width: 100%; height:100%;"src="images/rating.png" /></div>
+                <br><br>
+                </div>
+                <div style= "align-content: center;"><a href="map.html" class="button big">Continue</a></div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+     var username = localStorage.getItem("username");
+	 document.getElementById('title').innerHTML = "Hi " + username + ", congratulations on order completion!";
+</script>
+</body>
+</html>
